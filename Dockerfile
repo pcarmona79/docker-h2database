@@ -1,6 +1,6 @@
 FROM eclipse-temurin:11-jre-alpine
 
-ENV RELEASE_VERSION 2.1.214
+ENV RELEASE_VERSION 2.2.224
 ENV H2DATA /h2-data
 ENV H2_DBNAME="mydb"
 ENV H2_USER="sa"
