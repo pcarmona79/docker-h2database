@@ -1,7 +1,9 @@
-FROM eclipse-temurin:11-jre-alpine
+FROM eclipse-temurin:11-jre-alpine AS h2-2.3.232-jre11-alpine
+FROM eclipse-temurin:17-jre-alpine AS h2-2.3.232-jre17-alpine
+FROM eclipse-temurin:21-jre-alpine AS h2-2.3.232-jre21-alpine
 
-ENV RELEASE_VERSION 2.2.224
-ENV H2DATA /h2-data
+ENV RELEASE_VERSION=2.3.232
+ENV H2DATA=/h2-data
 ENV H2_DBNAME="mydb"
 ENV H2_USER="sa"
 ENV H2_PASSWORD=""
@@ -20,5 +22,5 @@ EXPOSE 8082 9092
 COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 
-CMD java -cp /h2/bin/h2.jar org.h2.tools.Server \
-  -web -webAllowOthers -tcp -tcpAllowOthers -baseDir $H2DATA
+CMD ["java", "-cp", "/h2/bin/h2.jar", "org.h2.tools.Server", "-web", "-webAllowOthers", "-tcp", "-tcpAllowOthers", "-baseDir", "$H2DATA"]
+
