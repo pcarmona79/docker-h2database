@@ -22,5 +22,5 @@ EXPOSE 8082 9092
 COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 
-CMD ["java", "-cp", "/h2/bin/h2.jar", "org.h2.tools.Server", "-web", "-webAllowOthers", "-tcp", "-tcpAllowOthers", "-baseDir", "$H2DATA"]
+CMD ["java", "-cp", "/h2/bin/h2.jar", "org.h2.tools.Server", "-web", "-webAllowOthers", "-tcp", "-tcpAllowOthers", "-baseDir", "/h2-data"]
 

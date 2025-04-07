@@ -50,8 +50,10 @@ download from Maven.
 Defaults to user "sa" and empty password.
 - `H2_OPTIONS`: extra H2 options to be added in the URL. Defaults to
 empty.
-- `H2DATA` specifies the location for the db files. If not set, `/h2-data` is used
-which is automatically created as an anonymous Docker volume.
+
+The `H2DATA` variable specifies the location of the db files and should not be
+modified. It is set to `/h2-data` and is automatically created as an anonymous
+Docker volume.
 
 ## Initialization scripts
 
